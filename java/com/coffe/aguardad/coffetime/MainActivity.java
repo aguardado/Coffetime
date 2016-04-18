@@ -76,6 +76,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void sendLog(){
+        try{
+            String usuario = myEditText[0].getText().toString();
+            String contraseña = myEditText[1].getText().toString();
+            out.writeByte(Msg.LOG);
+            Log.d("PASWORD ALBA", "COFFE");
+            sendMsg(usuario);
+            sendMsg(contraseña);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     public void sendIfoToServer()  {
         int time = Toast.LENGTH_SHORT;
@@ -102,8 +115,9 @@ public class MainActivity extends AppCompatActivity {
                             in = new DataInputStream(clientSocket.getInputStream());
                             out = new DataOutputStream(clientSocket.getOutputStream());
 
-                            sendNameUser();
-                            sendPasswordUser();
+                            //sendNameUser();
+                            //sendPasswordUser();
+                            sendLog();
 
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
