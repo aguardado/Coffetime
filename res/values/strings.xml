@@ -2,15 +2,19 @@
     <string name="app_name">CoffeTime</string>
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
     <string name="usuario">Usuario: </string>
     <string name="pswd">Contraseña: </string>
     <string name="buttonLogin">Login</string>
     <string name="buttonSend">SEND</string>
     <string name="grupoMenu">Grupos</string>
-    <string name="chatsMenu">Chats</string>
+    <string name="chatsMenu">Chat</string>
     <string name="loginMenu">Iniciar Sesion</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_chat">Send Messages</string>
     <string name="sendTo">Send to: </string>
-    <string name="userAlba">Alba</string>
+    <string name="msg">Message: </string>
+    <string name="viewMsgs">My messages :</string>
+    <string name="myMsgs">My messages</string>
+    <string name="title_activity_view_msg">View My Messages</string>
+    <string name="refresh">Refresh!</string>
 </resources>

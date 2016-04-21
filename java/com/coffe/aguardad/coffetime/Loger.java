@@ -50,7 +50,7 @@ public class Loger implements Runnable {
             if(loginOk == 0){
                 view.post(new MostrarToast("Error al introducir usuraio o contraseña, prueba de nuevo", this.activity));
             }else{
-                view.post(new ChatActivity(this.nombre));
+                view.post(new GoChatUsers(this.nombre, this.activity));
             }
 
         } catch (UnsupportedEncodingException e) {

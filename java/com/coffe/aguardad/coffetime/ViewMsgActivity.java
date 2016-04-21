@@ -2,40 +2,34 @@ package com.coffe.aguardad.coffetime;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
-public class ChatActivity extends AppCompatActivity{
 
-    private Button sendButton;
+public class ViewMsgActivity extends AppCompatActivity {
+
     private String nombreUsuarioOnline;
-
+    private Button refreshButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
-
+        setContentView(R.layout.activity_view_msg);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
-
-        EditText msgChat = (EditText) findViewById(R.id.editTextmsg);
-        EditText userDest = (EditText) findViewById(R.id.editTextUserSendTo);
-        sendButton = (Button) findViewById(R.id.buttonSend) ;
+        refreshButton = (Button) findViewById(R.id.buttonrefresh) ;
 
         Bundle userBundle = getIntent().getExtras();
         nombreUsuarioOnline = userBundle.getString("usuarioOnline");
 
-        sendButton.setOnClickListener(new PressSendMsg(nombreUsuarioOnline, msgChat, userDest, this));
+        refreshButton.setOnClickListener(new ShowMsgs(nombreUsuarioOnline, this));
+
+        //mostrar mensajes del fichero
     }
 
     @Override
@@ -50,8 +44,8 @@ public class ChatActivity extends AppCompatActivity{
         int id = item.getItemId();
         Intent intent;
         switch (id){
-            case R.id.myMsgs:
-                intent = new Intent(this.getApplicationContext(), ViewMsgActivity.class);
+            case R.id.chatsMenu:
+                intent = new Intent(this.getApplicationContext(),ChatActivity.class);
                 intent.putExtra("usuarioOnline", nombreUsuarioOnline);
                 this.startActivity(intent);//para conectar una activity con la otra
                 break;
@@ -63,4 +57,5 @@ public class ChatActivity extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
+
 }

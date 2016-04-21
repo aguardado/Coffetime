@@ -19,8 +19,8 @@ public class PressLogin implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        String nombre = this.nombre.getText().toString();
-        String password = this.password.getText().toString();
+        //String nombre = this.nombre.getText().toString();
+        //String password = this.password.getText().toString();
         new Thread(new Loger(this.nombre, this.password, view, this.activity)).start();
     }
 }
